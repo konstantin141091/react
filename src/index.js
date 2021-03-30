@@ -1,52 +1,20 @@
 import "./index.css";
-import style from "./index.module.css";
-// import img from "@assets/rabbit.jpg";
-// console.log('Hello people');
-//
-// class Test {
-//   a = 15;
-// }
-//
-// console.log(new Test().a);
-// console.log(img);
-// console.log(style);
-
-
-import React from "react";
+// import style from "./index.module.css";
+import React, {Component} from "react";
 import ReactDOM from "react-dom";
+import { MessageList } from "./components/message-list"
 
-const messages = ["Hello", "Привет из реакта"];
 
-const Messages = () => {
-  return (
-    <div>
-      <h1>Сообщения</h1>
-      {messages.map((message) => (
-        <p key={message}>{message}</p>
-      ))}
-      <input id="mesInput" placeholder="Введите сообщение" />
-      <button onClick={sendMessage}>Отправить</button>
-    </div>
-  )
-};
-
-function sendMessage() {
-  let mes = document.getElementById('mesInput').value;
-  messages.push(mes);
-  document.getElementById('mesInput').value = '';
-  ReactDOM.render(
-    <>
-      <Messages title="title" />
-    </>,
-    document.querySelector("#root"),
-  );
+class App extends Component {
+  render() {
+    return (
+      <div>
+        <h1>Сообщения</h1>
+        <MessageList />
+      </div>
+    )
+  }
 }
 
-ReactDOM.render(
-  <>
-    <Messages title="title" />
-  </>,
-  document.querySelector("#root"),
-);
-
+ReactDOM.render(<App />, document.getElementById("root"));
 
