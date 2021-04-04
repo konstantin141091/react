@@ -17,7 +17,7 @@ export class Message extends Component {
 
     return (
       <div className={styles.message}>
-        <p>{author}: </p>
+        <p className={styles.message__author}>{author}</p>
         <h3>{value}</h3>
       </div>
     )

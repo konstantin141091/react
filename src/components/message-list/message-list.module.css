@@ -1,0 +1,19 @@
+.icon {
+    color: #2b5278;
+    cursor: pointer;
+}
+
+.content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.messages {
+    overflow-y: scroll;
+}
+
+.input {
+    margin-bottom: 10px;
+}

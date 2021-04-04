@@ -1,0 +1,19 @@
+.message {
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+}
+
+.message:first-child {
+    margin-top: 0;
+}
+
+.message__author {
+    margin-bottom: 5px;
+    color: #3a6d99;
+    font-weight: 700;
+    font-size: 18px;
+}
+.message__text {
+    font-size: 14px;
+}

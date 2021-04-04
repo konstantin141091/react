@@ -1,0 +1,17 @@
+.header {
+    background-color: #248df3;
+    padding: 20px 10px;
+}
+
+.logo {
+
+}
+.logo a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 30px;
+}
+
+.logo a:hover {
+    color: #2b5278;
+}
