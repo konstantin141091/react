@@ -1,6 +1,6 @@
 import { Input, withStyles, InputAdornment } from "@material-ui/core"
 import { Send } from "@material-ui/icons"
-import React, {Component, createRef} from "react"
+import React, { Component, createRef } from "react"
 
 import { Message } from "./message"
 import styles from "./message-list.module.css"
@@ -23,7 +23,7 @@ export class MessageList extends Component {
     value: "",
   };
 
-  messages = createRef();
+  ref = createRef();
 
   sendMessage = ({ author, value }) => {
     const { messages } = this.state;
@@ -46,9 +46,9 @@ export class MessageList extends Component {
     }
   };
 
-  scrollMessages = () => {
-    if (this.messages.current) {
-      this.messages.current.scrollTo(0, this.messages.current.scrollHeight);
+  handleScrollBottom = () => {
+    if (this.ref.current) {
+      this.ref.current.scrollTo(0, this.ref.current.scrollHeight)
     }
   };
 
@@ -63,19 +63,20 @@ export class MessageList extends Component {
       }, 500)
     }
 
-    this.scrollMessages();
+    this.handleScrollBottom()
   }
 
   render() {
     const { messages, value } = this.state;
 
     return (
-      <div className={styles.content} >
-        <div ref={this.messages} className={styles.messages}>
+      <>
+        <div ref={this.ref}>
           {messages.map((message, index) => (
             <Message message={message} key={index} />
           ))}
         </div>
+
         <StyledInput
           fullWidth={true}
           value={value}
@@ -83,7 +84,7 @@ export class MessageList extends Component {
           onKeyPress={this.handlePressInput}
           placeholder="Введите сообщение..."
           endAdornment={
-            <InputAdornment position="end" className={styles.input}>
+            <InputAdornment position="end">
               {value && (
                 <Send
                   className={styles.icon}
@@ -95,7 +96,7 @@ export class MessageList extends Component {
             </InputAdornment>
           }
         />
-      </div>
+      </>
     )
   }
 }

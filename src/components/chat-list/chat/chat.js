@@ -18,32 +18,21 @@ const StyledListItem = withStyles(() => ({
     "&.Mui-selected:hover": {
       backgroundColor: "#2b5278",
     },
-    "&": {
-      backgroundColor: "#578cca",
-    },
-    "&:hover": {
-      backgroundColor: "#9aa3af",
-    },
   },
 }))(ListItem);
 
+// @TODO* доработать и сделать вывод последнего сообщения
 export class Chat extends Component {
   static propTypes = {
     title: PropTypes.string.isRequired,
     selected: PropTypes.bool.isRequired,
-    handleListItemClick: PropTypes.func.isRequired,
   };
 
   render() {
-    const { handleListItemClick, selected, title } = this.props;
+    const { selected, title } = this.props;
 
     return (
-      <StyledListItem
-        button={true}
-        selected={selected}
-        onClick={handleListItemClick}
-        className={styles.chat}
-      >
+      <StyledListItem button={true} selected={selected}>
         <ListItemIcon>
           <AccountCircle fontSize="large" className={styles.icon} />
         </ListItemIcon>
