@@ -4,14 +4,8 @@ const initialState = {
   room1: [
     { author: "User", message: "test!", createdTs: new Date() },
     { author: "Bot", message: "Привет, я бот!", createdTs: new Date() },
-    { author: "User", message: "lastMes!", createdTs: new Date() },
   ],
-  room3: [
-    { author: "User", message: "test!", createdTs: new Date() },
-    { author: "Bot", message: "Привет, я бот!", createdTs: new Date() },
-    { author: "User", message: "lastMes333!", createdTs: new Date() },
-  ],
-};
+}
 
 export const messagesReducer = (state = initialState, { type, payload }) => {
   switch (type) {
@@ -26,8 +20,15 @@ export const messagesReducer = (state = initialState, { type, payload }) => {
             createdTs: new Date(),
           },
         ],
-      };
+      }
     default:
       return state
   }
-};
+}
+
+// @TODO реагировать удаления комнаты
+
+// @TODO * сделть функцию createReducer
+// const reducer = createReducer(initialState, {
+//   [MESSAGE_SEND]: (state, action) => ({})
+// })
