@@ -7,7 +7,7 @@ export class Message extends Component {
   render() {
     const {
       message: { message, author, createdTs },
-    } = this.props;
+    } = this.props
 
     return (
       <div
@@ -17,7 +17,7 @@ export class Message extends Component {
       >
         <p>{author}</p>
         <h3>{message}</h3>
-         <p>{format(new Date(createdTs), "HH:mm:ss")}</p>
+        <p>{format(new Date(createdTs), "HH:mm:ss")}</p>
       </div>
     )
   }

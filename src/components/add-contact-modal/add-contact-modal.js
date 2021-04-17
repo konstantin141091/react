@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux"
 import { addConversation } from "../../store"
 import styles from "./add-contact-modal.module.css"
 
-const contacts = Array.from({ length: 50 }, (_, i) => `room${i}`);
+const contacts = Array.from({ length: 50 }, (_, i) => `room${i}`)
 
 export const AddContactModal = ({ isOpen, onClose, conversations }) => {
   const dispatch = useDispatch()
@@ -13,12 +13,12 @@ export const AddContactModal = ({ isOpen, onClose, conversations }) => {
   const handleContactClick = (contact) => {
     // @TODO сделать так, что бы нельзя было добавить выбранный контакт
     dispatch(addConversation(contact))
-    onClose();
-  };
+    onClose()
+  }
 
   const checkActiveConversation = (contact) => {
     return conversations.find((conversation) => conversation.title === contact)
-  };
+  }
 
   return (
     <ModalBase open={isOpen} onClose={onClose}>

@@ -19,16 +19,20 @@ const StyledListItem = withStyles(() => ({
       backgroundColor: "#2b5278",
     },
   },
-}))(ListItem);
+}))(ListItem)
 
 // @TODO посмотреть как пофиксить строковую дату
 export class Chat extends Component {
   render() {
-    const { selected, chat, lastMessage } = this.props;
-    const { title } = chat;
+    const { selected, chat, lastMessage, handleNavigate } = this.props
+    const { title } = chat
 
     return (
-      <StyledListItem button={true} selected={selected}>
+      <StyledListItem
+        button={true}
+        selected={selected}
+        onClick={handleNavigate}
+      >
         <ListItemIcon>
           <AccountCircle fontSize="large" className={styles.icon} />
         </ListItemIcon>

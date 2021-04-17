@@ -1,22 +1,32 @@
-import { ADD_CONVERSATION, CHANGE_VALUE, DELETE_CONVERSATION } from "./types"
+import {
+  ADD_CONVERSATION,
+  CHANGE_VALUE,
+  GET_CONVERSATION_SUCCESS,
+  GET_CONVERSATION_ERROR,
+  GET_CONVERSATION_PENDING,
+} from "./types"
 
 export const addConversation = (contact) => {
   return {
     type: ADD_CONVERSATION,
     payload: contact,
   }
-};
+}
 
 export const changeValue = (id, value) => {
   return {
     type: CHANGE_VALUE,
     payload: { id, value },
   }
-};
+}
 
-export const deleteConversation = (id) => {
-  return {
-    type: DELETE_CONVERSATION,
-    payload: { id }
+export const getConversations = () => async (dispatch, getState, request) => {
+  dispatch({ type: GET_CONVERSATION_PENDING })
+
+  try {
+    const { data } = await request.get("conversations")
+    dispatch({ type: GET_CONVERSATION_SUCCESS, payload: data })
+  } catch {
+    dispatch({ type: GET_CONVERSATION_ERROR })
   }
-};
+}
